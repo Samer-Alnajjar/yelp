@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../styles/base.css">
+</head>
+<body>
+  <div class="home">
+  <% data.forEach(res => { %>
+      <div>
+        <p>Name: <%= res.name%></p>
+        <p>Image_url: <%= res.image_url%></p>
+        <p>Price: <%= res.price%></p>
+        <p>Rating: <%= res.rating%></p>
+        <p>URL: <%= res.url%></p>
+        <form action="/search" method="POST">
+          <input type="text" name="name" value="<%= res.name%>" hidden>
+          <input type="text" name="image_url" value="<%= res.image_url%>" hidden>
+          <input type="text" name="price" value="<%= res.price%>" hidden>
+          <input type="text" name="rating" value="<%= res.rating%>" hidden>
+          <input type="text" name="url" value="<%= res.url%>" hidden>
+          <input type="submit">
+        </form>
+      </div>
+      <hr>
+      <%})%>
+    </div>
+</body>
+</html>

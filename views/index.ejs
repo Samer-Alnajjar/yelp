@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../styles/base.css">
+
+</head>
+<body>
+  <p >Search for a restaurant</p>
+  <form action="/search" method="GET">
+    <input type="text" name="place" >
+    <input type="submit">
+  </form>
+  <hr>
+  <% if(data.length) { %>
+    <div class="home">
+    <% data.forEach(res => { %>
+        <div>
+          <p>Name: <%= res.name%></p>
+          <p>Image_url: <%= res.image_url%></p>
+          <p>Price: <%= res.price%></p>
+          <p>Rating: <%= res.rating%></p>
+          <p>URL: <%= res.url%></p>
+          <a href="/details/<%= res.id%>">Details</a>
+        </div>
+        <hr>
+      <%})%>
+    </div>
+  <% } else { %>
+    <h1>There are no data in the database :(</h1>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../styles/base.css">
+
+</head>
+<body>
+  <div class="home">
+        <div id="detail-form">
+          <p>Name: <%= data.name%></p>
+          <p>Image_url: <%= data.image_url%></p>
+          <p>Price: <%= data.price%></p>
+          <p>Rating: <%= data.rating%></p>
+          <p>URL: <%= data.url%></p>
+          <button id="update">Update</button>
+          <form action="/details/<%= data.id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+
+        <div id="update-form" hidden>
+          <form action="/details/<%= data.id%>?_method=PUT" method="POST">
+            <label> Name: </label>
+            <input type="text" name="name" value="<%= data.name%>">
+
+            <label>Image_url: </label>
+            <input type="text" name="image_url" value="<%= data.image_url%>">
+
+            <label>Price: </label>
+            <input type="text" name="price" value="<%= data.price%>">
+            
+            <label>Rating: </label>
+            <input type="text" name="rating" value="<%= data.rating%>">
+            
+            <label>URL: </label>
+            <input type="text" name="url" value="<%= data.url%>">
+            <br>
+            <input type="submit" value="Update">
+          </form>
+          <button id="cancel">Cancel</button>
+        </div>
+        
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>
